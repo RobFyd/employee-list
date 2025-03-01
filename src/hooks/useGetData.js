@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+
 export function useGetData() {
-  console.log("Custom hook used");
+  useEffect(() => {
+    console.log("Custom hook used");
+  }, []);
 }
