@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useGetData } from "../../hooks/useGetData";
 import styles from "./Stocks.module.css";
 
 export function Stocks() {
@@ -31,6 +32,8 @@ export function Stocks() {
       isCancelled = true;
     };
   }, []);
+
+  useGetData();
 
   return (
     <section className={styles.section}>
