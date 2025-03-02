@@ -1,36 +1,8 @@
-import { useEffect, useState } from "react";
+import { useGetData } from "../../hooks/useGetData";
 import styles from "./Employees.module.css";
 
 export function Employees() {
-  const [employees, setEmployees] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    let isCancelled = false;
-
-    fetch("/employees.json")
-      .then((res) => {
-        if (res.ok) {
-          setError(null);
-          return res.json();
-        }
-
-        throw new Error("Something went wrong...");
-      })
-      .then((res) => {
-        if (isCancelled) {
-          return;
-        }
-        setEmployees(res);
-      })
-      .catch((e) => {
-        setError(e);
-      });
-
-    return () => {
-      isCancelled = true;
-    };
-  }, []);
+  const { data: employees, error } = useGetData();
 
   return (
     <section className={styles.section}>

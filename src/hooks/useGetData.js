@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export function useGetData() {
-  const [stocks, setStocks] = useState([]);
+  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export function useGetData() {
         if (isCancelled) {
           return;
         }
-        setStocks(res);
+        setData(res);
       })
       .catch((e) => {
         setError(e);
@@ -32,5 +32,5 @@ export function useGetData() {
     };
   }, []);
 
-  return { stocks, error };
+  return { data, error };
 }
