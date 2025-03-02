@@ -2,7 +2,7 @@ import { useGetData } from "../../hooks/useGetData";
 import styles from "./Stocks.module.css";
 
 export function Stocks() {
-  const { data: stocks, error } = useGetData();
+  const { data: stocks, error } = useGetData("/stocks.json");
 
   return (
     <section className={styles.section}>

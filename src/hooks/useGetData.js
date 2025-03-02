@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-export function useGetData() {
+export function useGetData(url) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     let isCancelled = false;
 
-    fetch("/stocks.json")
+    fetch(url)
       .then((res) => {
         if (res.ok) {
           setError(null);
@@ -30,7 +30,7 @@ export function useGetData() {
     return () => {
       isCancelled = true;
     };
-  }, []);
+  }, [url]);
 
   return { data, error };
 }

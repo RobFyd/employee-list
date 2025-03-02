@@ -2,7 +2,7 @@ import { useGetData } from "../../hooks/useGetData";
 import styles from "./Employees.module.css";
 
 export function Employees() {
-  const { data: employees, error } = useGetData();
+  const { data: employees, error } = useGetData("/employees.json");
 
   return (
     <section className={styles.section}>
