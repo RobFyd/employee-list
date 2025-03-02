@@ -31,4 +31,6 @@ export function useGetData() {
       isCancelled = true;
     };
   }, []);
+
+  return { stocks, error };
 }
